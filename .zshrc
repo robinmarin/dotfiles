@@ -25,7 +25,7 @@ __fzf_history_widget() {
   setopt localoptions noglobsubst noposixbuiltins pipefail no_aliases 2> /dev/null
   cur_time=$(date +%s)
   tz_sec=$(date +%z | awk '{s=substr($0,1,1); h=substr($0,2,2)+0; m=substr($0,4,2)+0; print (s=="-"?-1:1)*(h*3600+m*60)}')
-  selected=( $(awk -F';' -v cur="$cur_time" -v tz="$tz_sec" -v max_age=2419200 '{
+  selected=$(awk -F';' -v cur="$cur_time" -v tz="$tz_sec" -v max_age=2419200 '{
     if($1 ~ /^: [0-9]+:[0-9]+$/) {
       split($1,a,":");
       ts=a[2];
@@ -50,11 +50,10 @@ __fzf_history_widget() {
       if(!seen[cmd]++) print label "|" cmd
     }
   }' ~/.zsh_history 2>/dev/null |
-    fzf +m --tac --query=${LBUFFER} --height=40% --layout=reverse --border --with-nth=1.. --delimiter="|" --bind=ctrl-r:toggle-sort,enter:accept) )
+    fzf +m --tac --query="${LBUFFER}" --height=40% --layout=reverse --border --with-nth=1.. --delimiter="|" --bind=ctrl-r:toggle-sort,enter:accept)
   local ret=$?
-  local IFS='|'
-  if (($ret == 0)) && [[ -n "$selected" && "$selected" == *"|"* ]]; then
-    LBUFFER="${selected##*|}"
+  if [[ $ret == 0 && -n "$selected" ]]; then
+    LBUFFER="${selected#*|}"
   fi
   zle redisplay
   return $ret
