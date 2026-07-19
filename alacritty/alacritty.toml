@@ -1,6 +1,7 @@
 general.import = [
- "~/.config/alacritty/catppuccin-mocha.toml"
+  "~/.config/alacritty/catppuccin-mocha.toml"
 ]
+
 [env]
   TERM = "xterm-256color"
 
@@ -12,6 +13,12 @@ general.import = [
 
 [window]
   padding = { x = 12, y = 10 }
+  dynamic_padding = true
+  opacity = 0.85
+  decorations = "buttonless"
+  option_as_alt = "OnlyLeft"
+  startup_mode = "Windowed"
+  resize_increments = true
 
 [scrolling]
   history = 10000
@@ -20,13 +27,45 @@ general.import = [
   style = { shape = "Beam", blinking = "On" }
   blink_interval = 500
   unfocused_hollow = true
+  thickness = 0.15
+
+[selection]
+  save_to_clipboard = true
+
+[bell]
+  animation = "EaseOutExpo"
+  duration = 0
 
 [mouse]
   hide_when_typing = true
+  bindings = [
+    { mouse = "Right", action = "PasteSelection" }
+  ]
+
+[hints]
+  [[hints.enabled]]
+    command = "open"
+    hyperlinks = true
+    post_processing = true
+    persist = false
+    mouse.enabled = true
+    binding = { key = "U", mods = "Control|Shift" }
+    regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+
+[terminal]
+  shell = { program = "/bin/zsh", args = ["-l"] }
 
 [keyboard]
 bindings = [
-{ key = "Insert", mods = "Shift", action = "Paste" },
-{ key = "Insert", mods = "Control", action = "Copy" },
-{ key = "Return", mods = "Shift", chars = "\u001B\r" }
+  { key = "Insert", mods = "Shift", action = "Paste" },
+  { key = "Insert", mods = "Control", action = "Copy" },
+  { key = "Return", mods = "Shift", chars = "\u001B\r" },
+  { key = "Equals", mods = "Control", action = "IncreaseFontSize" },
+  { key = "Minus", mods = "Control", action = "DecreaseFontSize" },
+  { key = "Key0", mods = "Control", action = "ResetFontSize" },
+  { key = "K", mods = "Control", action = "ClearHistory" },
+  { key = "L", mods = "Control", action = "ClearLogNotice" },
+  { key = "F", mods = "Control|Shift", action = "SearchForward" },
+  { key = "B", mods = "Control|Shift", action = "SearchBackward" },
+  { key = "F", mods = "Command|Control", action = "ToggleSimpleFullscreen" }
 ]
