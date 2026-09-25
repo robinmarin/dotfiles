@@ -20,6 +20,7 @@ TIMESTAMP="$(date +%Y%m%d_%H%M%S)"
 # Add new dotfiles here as you start tracking them.
 FILES=(
   ".zshrc:$HOME/.zshrc"
+  ".tmux.conf:$HOME/.tmux.conf"
   "alacritty/alacritty.toml:$HOME/.config/alacritty/alacritty.toml"
   "alacritty/catppuccin-mocha.toml:$HOME/.config/alacritty/catppuccin-mocha.toml"
 )
@@ -53,3 +54,4 @@ done
 
 echo
 echo "Done. Restart your shell or run 'source ~/.zshrc' to pick up changes."
+echo "Reload tmux with 'tmux source-file ~/.tmux.conf'."

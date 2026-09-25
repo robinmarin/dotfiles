@@ -2,26 +2,27 @@ general.import = [
   "~/.config/alacritty/catppuccin-mocha.toml"
 ]
 
-[env]
-  TERM = "xterm-256color"
-
 [font]
-  normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
-  bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
-  italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
-  size = 13.0  # or 14.0 if you're on a retina/HiDPI display
+  normal = { family = "FiraCode Nerd Font", style = "Regular" }
+  bold = { family = "FiraCode Nerd Font", style = "Bold" }
+  italic = { family = "FiraCode Nerd Font", style = "Italic" }
+  size = 13.5
+  offset = { x = 0, y = 2 }
+  glyph_offset = { x = 0, y = 1 }
 
 [window]
-  padding = { x = 12, y = 10 }
+  padding = { x = 20, y = 16 }
+  decorations = "Buttonless"
   dynamic_padding = true
-  opacity = 0.85
-  decorations = "buttonless"
+  opacity = 0.95
+  blur = true
   option_as_alt = "OnlyLeft"
   startup_mode = "Windowed"
   resize_increments = true
 
 [scrolling]
   history = 10000
+  multiplier = 1  # lines per wheel/trackpad tick; raise to 3 if scrolling feels slow
 
 [cursor]
   style = { shape = "Beam", blinking = "On" }
