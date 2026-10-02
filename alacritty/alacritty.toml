@@ -12,7 +12,7 @@ general.import = [
 
 [window]
   padding = { x = 20, y = 16 }
-  decorations = "Buttonless"
+  decorations = "Full"
   dynamic_padding = true
   opacity = 0.95
   blur = true
