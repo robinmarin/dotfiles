@@ -23,6 +23,7 @@ FILES=(
   ".tmux.conf:$HOME/.tmux.conf"
   "alacritty/alacritty.toml:$HOME/.config/alacritty/alacritty.toml"
   "alacritty/catppuccin-mocha.toml:$HOME/.config/alacritty/catppuccin-mocha.toml"
+  "ghostty/config.ghostty:$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty"
 )
 
 echo "Installing dotfiles from: $DOTFILES_DIR"
